@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>JS Training</title>
+
+    <link rel="icon" href="common/img/favicon.ico">
+
+    <link rel="stylesheet" href="reveal.js-3.3.0/css/reveal.css">
+    <link rel="stylesheet" href="reveal.js-3.3.0/css/theme/black.css">
+    <link rel="stylesheet" href="common/css/common.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="reveal.js-3.3.0/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'reveal.js-3.3.0/css/print/pdf.css' : 'reveal.js-3.3.0/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="devon reveal">
+        <div class="slides">
+            <section>
+                <img src="common/img/js_logo.svg" height="100px" class="reset">
+                <div class="tables-of-content">
+                    <div>
+                        <ul>
+                            <li><a href="js-to-es6/index.html" target="_blank">From ES5 to ES2015</a></li>
+                            <li><a href="promises-to-observables/index.html" target="_blank">From Callbacks via Promises to RxJS Observables</a></li>
+                            <li>JS on node.js (npm / yarn) – how to manage dependencies, how to run js, how to debug code (check
+                                node.js based tests (best with jasmine))</li>
+                            <li>Testing with Jasmine and Karma</li>
+                            <li>JavaScript in the Browser (DOM Basics, Properties and attributes, Events)</li>
+                            <li>JS modules (CommonJS / Webpack)</li>
+                        </ul>
+                    </div>
+                    <!--<div>
+                    <ul>
+                        
+                        <li><a href="ng-http/index.html" target="_blank">ng HttpService</a></li>
+                        <li><a href="ng-forms/index.html" target="_blank">ng Forms</a></li>
+                        <li><a href="testing/index.html" target="_blank">Testing</a></li>
+                    </ul>
+                </div>
+				-->
+                </div>
+            </section>
+            <section>
+                <h3>Exercises</h3>
+                <!--<ol>
+                <li><a href="exercises/index.html#/simple-component" target="_blank">Simple Component</a></li>
+                <li><a target="_blank" href="exercises/index.html#/master-details">Master/Details&nbsp;Pattern</a></li>
+                <li><a target="_blank" href="exercises/index.html#/data-binding">Data Binding</a></li>
+                <li><a target="_blank" href="exercises/index.html#/service">Service</a></li>
+				<li><a target="_blank" href="exercises/index.html#/routing">Routing</a></li>
+				<li><a target="_blank" href="exercises/index.html#/http">Http</a></li>
+                <li><a target="_blank" href="exercises/index.html#/forms">Forms</a></li>
+                <li><a target="_blank" href="exercises/testing.html">Isolated UnitTests</a></li>
+                <li><a target="_blank" href="exercises/testing.html#/1">Angular Testing Utilities</a></li>
+            </ol>
+			-->
+            </section>
+        </div>
+    </div>
+
+    <script src="reveal.js-3.3.0/lib/js/head.min.js"></script>
+    <script src="reveal.js-3.3.0/js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+                { src: 'reveal.js-3.3.0/plugin/markdown/marked.js' },
+                { src: 'reveal.js-3.3.0/plugin/markdown/markdown.js' },
+                { src: 'reveal.js-3.3.0/plugin/notes/notes.js', async: true },
+                {
+                    src: 'reveal.js-3.3.0/plugin/highlight/highlight.js', async: true, callback: function () {
+                        hljs.initHighlightingOnLoad();
+                    }
+                }
+            ]
+        });
+    </script>
+</body>
+
+</html>
