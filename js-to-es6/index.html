@@ -279,9 +279,6 @@ person.details; // undefined
                     <h2>Constructor function</h2>
                     <p>is intended to be invoked with the <i>new</i> prefix <small>(forgetting it makes <i>this</i> bound to the global object!)</small>
                     </p>
-                    <p>creates a new object with a hidden link to its <i>prototype</i>
-                    </p>
-                    <p>is kept in a variable with a capitalized name by convention</p>
                     <pre><code data-trim class="javascript">
 var Person = function () {
       this.firstName = 'John';
@@ -297,6 +294,7 @@ johnExample = new Person();
 johnExample.letMeIntroduceMyself();  // My name is John Example
 johnExample.firstName; // 'John' - no privacy
 					</code></pre>
+                    <p><a target="_blank" href="../exercises/index.html#constructor-function">Exercise 3. - constructor function</a></p>
                 </section>
                 <section>
                     <blockquote class="twitter-tweet" data-lang="de">
