@@ -2,31 +2,37 @@
 
 console.log('hello from main js');
 
-// rename personFactory to person and use module pattern with IIFE here
-var personFactory = function(){
+var person = (function () {
     var details = {
         firstName: 'John',
         lastName: 'example',
-        // move accounts from details object to returned object
-        accounts: [{
-            balance: 1000.00,
-            currency: 'EUR'
-        }]
     };
-    // create local calculateBalance() function which iterates over all accounts and calculates and returns total balance
-    // watch out for the 'this' context
+    var calculateBalance = function () {
+        var totalBalance = 0;
+
+        for (var index = 0; index < this.accounts.length; index++) {
+            totalBalance = totalBalance + this.accounts[index].balance;
+        }
+
+        return totalBalance;
+    };
 
     return {
         firstName: details.firstName,
         lastName: details.lastName,
-        // add accounts list here
-        // update sayHello() to print also the total balance
-        // remember to update details.accounts.length call and call calculateBalance with the correct context of 'this'
-        sayHello: function(){
-            return 'Hi, my name is ' + this.firstName + ' ' + this.lastName + ' and I have ' + details.accounts.length  + ' bank account(s)';
+        accounts: [{
+            balance: 1000.00,
+            currency: 'EUR'
+        }],
+        addAccount: function (account) {
+            this.accounts.push(account);
+        },
+        sayHello: function () {
+            return 'Hi, my name is ' + this.firstName + ' ' + this.lastName + ' and I have ' + this.accounts.length + ' bank account(s) with total balance ' + calculateBalance.apply(this);
         }
     };
-};
+})();
 
-var johnExample = personFactory();
-console.log(johnExample.sayHello());
+console.log(person.sayHello());
+person.addAccount({ balance: 1500 });
+console.log(person.sayHello());
