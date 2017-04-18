@@ -2,8 +2,10 @@
 
 console.log('hello from main js');
 
-// create constructor function for a bank account
-// it should take balance and currency as parameters
+var Account = function (balance, currency) {
+    this.balance = balance;
+    this.currency = currency;
+};
 
 var person = (function () {
     var details = {
@@ -37,6 +39,5 @@ var person = (function () {
 })();
 
 console.log(person.sayHello());
-// create an account object for addAccount method with a constructor function here instead of an object literal expression
-person.addAccount({ balance: 1500 });
+person.addAccount(new Account(1500, 'EUR'));
 console.log(person.sayHello());
