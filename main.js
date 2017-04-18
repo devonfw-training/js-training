@@ -1,10 +1,10 @@
 console.log('hello from main js');
 
-// add acount number
 class Account {
-    constructor(balance, currency) {
+    constructor(balance, currency, number) {
         this.balance = balance;
         this.currency = currency;
+        this.number = number;
     };
 };
 
@@ -27,11 +27,28 @@ class Person {
         return this.accounts.filter(account => account.balance > 0);
     };
 
-    // add findAccount(accountNumber) method (use Array.find method)
+    findAccount(accountNumber) {
+        return this.accounts.find(account => account.number === accountNumber);
+    };
 
-    // add withdraw(accountNumber, amount) method which returns promise (use Promise API -> new Promise(resolve, reject))
-    // promise is resolved after 3 seconds (use setTimeout(callback)) when the account is found and the amount >= account.balance
-    // promise is rejected either when account is not found or there are not enough funds on the found account
+    withdraw(accountNumber, amount) {
+        const promise = new Promise((resolve, reject) => {
+            const foundAccount = this.findAccount(accountNumber);
+
+            if (foundAccount && foundAccount.balance >= amount) {
+                setTimeout(() => {
+                    foundAccount.balance = foundAccount.balance - amount;
+                    resolve(`Operation successful, withdrawn ${amount} from account ${accountNumber}, remaining balance ${foundAccount.balance}`);
+                }, 3000);
+            } else if (!foundAccount) {
+                reject('Incorrect account number')
+            } else {
+                reject(`Not enough funds on account number ${accountNumber}`);
+            }
+        });
+
+        return promise;
+    };
 
     _calculateBalance() {
         let totalBalance = 0;
@@ -44,12 +61,20 @@ class Person {
     };
 };
 
-// add account numbers to all Account constructors
-const person = new Person('John', 'Example', [new Account(1500, 'EUR')]);
+const person = new Person('John', 'Example', [new Account(1500, 'EUR', 1)]);
 console.log(person.sayHello());
-person.addAccount(new Account(-2500, 'EUR'));
+person.addAccount(new Account(-2500, 'EUR', 2));
 console.log(person.sayHello());
 console.log(person.filterPositiveAccounts());
 
-// call person.withdraw for different cases
 
+person.withdraw(1, 200)
+    .then(success => {
+        console.log(success);
+        console.log('------------------after successful withdrawal--------------------------')
+        console.log(person.sayHello());
+    })
+    .catch(error => console.warn(error));
+
+person.withdraw(2, 200).catch(error => console.warn(error));
+person.withdraw(3, 500).catch(error => console.warn(error));
