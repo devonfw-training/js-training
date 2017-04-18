@@ -70,6 +70,28 @@
                     </ol>
                 </section>
             </section>
+            <section id="module-pattern">
+                <section>
+                    <h3>Module Pattern (1/2)</h3>
+                    <ol>
+                        <li>rename <span class="monospace highlight">personFactory</span> to <span class="monospace highlight">person</span></li>
+                        <li>refactor code in order to use module pattern with IIFE</li>
+                        <li>move <span class="monospace highlight">accounts</span> from <span class="monospace highlight">details</span> object to object returned by IIFE</li>
+                        <li>add local <span class="monospace highlight">calculateBalance()</span> method</li>
+                        <li>add <span class="monospace highlight">addAccount(account)</span> method to module object</li>
+                        <li>update <span class="monospace highlight">sayHello</span> method in order to print person's total balance additionaly</li>
+                    </ol>
+                </section>
+                <section>
+                    <h3>Module Pattern (2/2)</h3>
+                    <ol>
+                        <li>call <span class="monospace highlight">sayHello()</span> on <span class="monospace highlight">person</span> module</li>
+                        <li>call <span class="monospace highlight">addAccount(someAccount)</span> on <span class="monospace highlight">person</span> module</li>
+                        <li>call <span class="monospace highlight">sayHello()</span> on <span class="monospace highlight">person</span> once again to see if balance is updated</li>
+                        <li>check the result in the browser and in node.js</li>
+                    </ol>
+                </section>
+            </section>
         </div>
     </div>
     </div>
