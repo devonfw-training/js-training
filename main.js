@@ -3,51 +3,46 @@
 
 console.log('hello from main js');
 
-// replace with class Account with the appropriate constructor (balance, currency)
-var Account = function (balance, currency) {
-    this.balance = balance;
-    this.currency = currency;
+class Account {
+    constructor(balance, currency) {
+        this.balance = balance;
+        this.currency = currency;
+    };
 };
 
-// replace with class Person with the appropriate constructor (firstName, lastName, accounts)
-var person = (function () {
-    var details = {
-        firstName: 'John',
-        lastName: 'example',
+class Person {
+    constructor(firstName, lastName, accounts) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.accounts = accounts;
     };
-    // replace with class method _calculateBalance()
-    var calculateBalance = function () {
-        var totalBalance = 0;
 
-        // use 'of' operator instead
-        for (var index = 0; index < this.accounts.length; index++) {
-            totalBalance = totalBalance + this.accounts[index].balance;
+    addAccount(account) {
+        this.accounts.push(account);
+    };
+
+    sayHello() {
+        return `Hi, my name is ${this.firstName} ${this.lastName} and I have ${this.accounts.length} bank account(s) with total balance ${this._calculateBalance()}`;
+    };
+
+    filterPositiveAccounts() {
+        return this.accounts.filter(account => account.balance > 0);
+    };
+
+    _calculateBalance() {
+        let totalBalance = 0;
+
+        for (let account of this.accounts) {
+            totalBalance = totalBalance + account.balance;
         }
 
         return totalBalance;
     };
+};
 
-    return {
-        firstName: details.firstName,
-        lastName: details.lastName,
-        accounts: [{
-            balance: 1000.00,
-            currency: 'EUR'
-        }],
-        // replace with class method addAccount(account)
-        addAccount: function (account) {
-            this.accounts.push(account);
-        },
-        // replace with class method sayHello()
-        sayHello: function () {
-            // use string interpolation here
-            return 'Hi, my name is ' + this.firstName + ' ' + this.lastName + ' and I have ' + this.accounts.length + ' bank account(s) with total balance ' + calculateBalance.apply(this);
-        }
-        // implement class method filterPositiveAccounts() which finds all accounts with a positive balance
-    };
-})();
+const person = new Person('John', 'Example', [new Account(1500, 'EUR')]);
+console.log(person.sayHello());
+person.addAccount(new Account(-2500, 'EUR'));
+console.log(person.sayHello());
+console.log(person.filterPositiveAccounts());
 
-// define new person with 'const' keyword, do some logging before / after adding accounts, print the result of filterPositiveAccounts() method 
-console.log(person.sayHello());
-person.addAccount(new Account(1500, 'EUR'));
-console.log(person.sayHello());
