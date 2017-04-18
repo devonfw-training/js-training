@@ -1,6 +1,3 @@
-// remove this
-'use strict';
-
 console.log('hello from main js');
 
 class Account {
