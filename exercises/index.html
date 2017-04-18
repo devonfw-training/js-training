@@ -133,6 +133,34 @@
                     </ol>
                 </section>
             </section>
+            <section id="promises">
+                <section>
+                    <h3>Promises (1/2)</h3>
+                    <ol>
+                        <li>add <span class="monospace highlight">number</span> property to <span class="monospace highlight">Account</span>                            class</li>
+                        <li>add <span class="monospace highlight">findAccount(accountNumber)</span> method to <span class="monospace highlight">Person</span>                            class (use <span class="monospace highlight">Array.prototype.find</span>)</li>
+                        <li>add <span class="monospace highlight">withdraw(accountNumber, amount)</span> method to <span class="monospace highlight">Person</span>                            class</li>
+                        <li><span class="monospace highlight">withdraw</span> method returns a promise (create promise with
+                            <span class="monospace highlight">new Promise(resolve, reject)</span> and return it)</li>
+                        <li>promise is resolved after 3 seconds (use <span class="monospace highlight">setTimeout(callback)</span>)
+                            when the account is found (use <span class="monospace highlight">findAccount</span> method) and
+                            the given amount is higher than foundAccount.balance</li>
+                    </ol>
+                </section>
+                <section>
+                    <h3>Promises (2/2)</h3>
+                    <ol start="6">
+                        <li>when promise is resolved, the account balance is updated and success message appears (with account
+                            number, new balance, amount of withdrawn money)</li>
+                        <li>promise is rejected either when the account can't be found or when the requested amount is bigger
+                            than account balance</li>
+                        <li>in case of rejection, there is an appropriate message returned</li>
+                        <li>update all accounts creation (<span class="monospace highlight">Account</span> constructor calls)
+                            with account numbers</li>
+                        <li>withdraw some money for different cases (use <span class="monospace highlight">person.withdraw(accNumber, amount).then(...).catch(...)</span></li>
+                    </ol>
+                </section>
+            </section>
         </div>
     </div>
     </div>
