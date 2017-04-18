@@ -76,18 +76,19 @@
                     <ol>
                         <li>rename <span class="monospace highlight">personFactory</span> to <span class="monospace highlight">person</span></li>
                         <li>refactor code in order to use module pattern with IIFE</li>
-                        <li>move <span class="monospace highlight">accounts</span> from <span class="monospace highlight">details</span> object to object returned by IIFE</li>
+                        <li>move <span class="monospace highlight">accounts</span> from <span class="monospace highlight">details</span>                            object to object returned by IIFE</li>
                         <li>add local <span class="monospace highlight">calculateBalance()</span> method</li>
                         <li>add <span class="monospace highlight">addAccount(account)</span> method to module object</li>
-                        <li>update <span class="monospace highlight">sayHello</span> method in order to print person's total balance additionaly</li>
+                        <li>update <span class="monospace highlight">sayHello</span> method in order to print person's total
+                            balance additionaly</li>
                     </ol>
                 </section>
                 <section>
                     <h3>Module Pattern (2/2)</h3>
                     <ol>
-                        <li>call <span class="monospace highlight">sayHello()</span> on <span class="monospace highlight">person</span> module</li>
-                        <li>call <span class="monospace highlight">addAccount(someAccount)</span> on <span class="monospace highlight">person</span> module</li>
-                        <li>call <span class="monospace highlight">sayHello()</span> on <span class="monospace highlight">person</span> once again to see if balance is updated</li>
+                        <li>call <span class="monospace highlight">sayHello()</span> on <span class="monospace highlight">person</span>                            module</li>
+                        <li>call <span class="monospace highlight">addAccount(someAccount)</span> on <span class="monospace highlight">person</span>                            module</li>
+                        <li>call <span class="monospace highlight">sayHello()</span> on <span class="monospace highlight">person</span>                            once again to see if balance is updated</li>
                         <li>check the result in the browser and in node.js</li>
                     </ol>
                 </section>
@@ -96,10 +97,39 @@
                 <section>
                     <h3>Constructor Function (1/1)</h3>
                     <ol>
-                        <li>create <span class="monospace highlight">Account</span> constructor function in the <span class="monospace highlight">main.js</span> file</li>
+                        <li>create <span class="monospace highlight">Account</span> constructor function in the <span class="monospace highlight">main.js</span>                            file</li>
                         <li>constructor function should take balance and currency as parameters</li>
                         <li>replace one of the account creation (literal object expression) with constructor function call</li>
                         <li>check the result in the browser and in node.js</li>
+                    </ol>
+                </section>
+            </section>
+            <section id="es6-syntax">
+                <section>
+                    <h3>ES6 Syntax (1/2)</h3>
+                    <ol>
+                        <li>replace <span class="monospace highlight">Account</span> constructor function with the <span class="monospace highlight">Account</span>                            class</li>
+                        <li>constructor of the <span class="monospace highlight">Account</span> class should take balance and
+                            currency as parameters</li>
+                        <li>replace <span class="monospace highlight">person</span> module with <span class="monospace highlight">Person</span>                            class</li>
+                        <li>constructor of the <span class="monospace highlight">Person</span> class should take firstName, lastNames
+                            and accounts list as parameters</li>
+                        <li>replace local <span class="monospace highlight">calculateBalance()</span> method with a Person class
+                            method <span class="monospace highlight">_calculateBalance()</span></li>
+                        <li>in the <span class="monospace highlight">_calculateBalance()</span> use <span class="monospace highlight">of</span>                            operator to iterate over array</li>
+                    </ol>
+                </section>
+                <section>
+                    <h3>ES6 Syntax (2/2)</h3>
+                    <ol start="7">
+                        <li>replace the <span class="monospace highlight">addAccount</span> method with the Person class method
+                            <span class="monospace highlight">addAccount</span></li>
+                        <li>replace the <span class="monospace highlight">sayHello</span> method with the Person class method
+                            <span class="monospace highlight">sayHello</span>, use string interpolation inside</li>
+                        <li>implement Person class method <span class="monospace highlight">filterPositiveAccounts()</span> which
+                            finds all accounts with a positive balance (use filter with combination of arrow function)</li>
+                        <li>define new person with <span class="monospace highlight">const</span> keyword, do some logging before
+                            / after adding accounts, print the result of <span class="monospace highlight">filterPositiveAccounts()</span>                            method</li>
                     </ol>
                 </section>
             </section>
