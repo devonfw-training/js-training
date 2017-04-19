@@ -37,6 +37,59 @@
                 </p>
                 <p>Testing with <span class="highlight">Karma</span> and <span class="highlight">Jasmine</span></p>
             </section>
+            <section>
+                <h3>Tools - unit testing</h3>
+
+                <ul>
+                    <li><a target="_blank" href="https://karma-runner.github.io/1.0/index.html">Karma</a> - tool used to spawn
+                        a web server which loads your application's source code and executes your tests.</li>
+                    <li><a target="_blank" href="https://jasmine.github.io/">Jasmine</a> - BDD framework for JavaScript, provides
+                        functions to help with structuring tests and making assertions.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Structuring tests</h3>
+                <div>
+                    <pre><code data-trim class="javascript">
+describe('A suite', () => {
+
+      it('contains spec with an expectation', () => {
+        expect(true).toBe(true);
+      });
+
+});
+      </code></pre>
+                </div>
+            </section>
+
+            <section>
+                <h3>Karma configuration</h3>
+                <div>
+                    <pre><code data-trim class="javascript">
+// install Karma
+npm install karma
+		  </code></pre>
+                </div>
+                <div>
+                    <pre><code data-trim class="javascript">
+// install plugins
+npm install karma-jasmine
+npm install karma-phantomjs-launcher
+npm install karma-chrome-launcher
+		  </code></pre>
+                </div>
+                <div>
+                    <pre><code data-trim class="javascript">
+// run Karma
+./node_modules/karma/bin/karma start / init / run
+// alternative
+npm install -g karma-cli
+karma start / init / run
+		  </code></pre>
+                </div>
+            </section>
+
         </div>
     </div>
 
