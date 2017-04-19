@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>JS Training - testing</title>
+    <link rel="icon" href="../common/img/favicon.ico">
+
+
+    <link rel="stylesheet" href="../reveal.js-3.3.0/css/reveal.css">
+    <link rel="stylesheet" href="../reveal.js-3.3.0/css/theme/black.css">
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="styles/own.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../reveal.js-3.3.0/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js-3.3.0/css/print/pdf.css' : '../reveal.js-3.3.0/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="devon reveal">
+        <div class="slides">
+            <section>
+                <p>
+                    <img class="header-logo" src="img/karma-logo.png" alt="karma logo">
+                    <img class="header-logo" src="img/jasmine-logo.png" alt="jasmine logo">
+                </p>
+                <p>Testing with <span class="highlight">Karma</span> and <span class="highlight">Jasmine</span></p>
+            </section>
+        </div>
+    </div>
+
+    <script src="../reveal.js-3.3.0/lib/js/head.min.js"></script>
+    <script src="../reveal.js-3.3.0/js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+                { src: '../reveal.js-3.3.0/lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: '../reveal.js-3.3.0/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: '../reveal.js-3.3.0/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: '../reveal.js-3.3.0/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: '../reveal.js-3.3.0/plugin/zoom-js/zoom.js', async: true },
+                { src: '../reveal.js-3.3.0/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+</body>
+
+</html>
