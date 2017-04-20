@@ -31,27 +31,28 @@
     <div class="devon reveal">
         <div class="slides">
             <section>
-                <p>
-                    <img class="header-logo" src="img/karma-logo.png" alt="karma logo">
-                    <img class="header-logo" src="img/jasmine-logo.png" alt="jasmine logo">
-                </p>
-                <p>Testing with <span class="highlight">Karma</span> and <span class="highlight">Jasmine</span></p>
-            </section>
-            <section>
-                <h3>Tools - unit testing</h3>
+                <section>
+                    <p>
+                        <img class="header-logo" src="img/karma-logo.png" alt="karma logo">
+                        <img class="header-logo" src="img/jasmine-logo.png" alt="jasmine logo">
+                    </p>
+                    <p>Testing with <span class="highlight">Karma</span> and <span class="highlight">Jasmine</span></p>
+                </section>
+                <section>
+                    <h3>Tools - unit testing</h3>
 
-                <ul>
-                    <li><a target="_blank" href="https://karma-runner.github.io/1.0/index.html">Karma</a> - tool used to spawn
-                        a web server which loads your application's source code and executes your tests.</li>
-                    <li><a target="_blank" href="https://jasmine.github.io/">Jasmine</a> - BDD framework for JavaScript, provides
-                        functions to help with structuring tests and making assertions.</li>
-                </ul>
-            </section>
+                    <ul>
+                        <li><a target="_blank" href="https://karma-runner.github.io/1.0/index.html">Karma</a> - tool used to
+                            spawn a web server which loads your application's source code and executes your tests.</li>
+                        <li><a target="_blank" href="https://jasmine.github.io/">Jasmine</a> - BDD framework for JavaScript,
+                            provides functions to help with structuring tests and making assertions.</li>
+                    </ul>
+                </section>
 
-            <section>
-                <h3>Structuring tests</h3>
-                <div>
-                    <pre><code data-trim class="javascript">
+                <section>
+                    <h3>Structuring tests</h3>
+                    <div>
+                        <pre><code data-trim class="javascript">
 describe('A suite', () => {
 
       it('contains spec with an expectation', () => {
@@ -60,36 +61,63 @@ describe('A suite', () => {
 
 });
       </code></pre>
-                </div>
-            </section>
+                    </div>
+                </section>
 
-            <section>
-                <h3>Karma configuration</h3>
-                <div>
-                    <pre><code data-trim class="javascript">
+                <section>
+                    <h3>Karma configuration</h3>
+                    <div>
+                        <pre><code data-trim class="javascript">
 // install Karma
 npm install karma
 		  </code></pre>
-                </div>
-                <div>
-                    <pre><code data-trim class="javascript">
+                    </div>
+                    <div>
+                        <pre><code data-trim class="javascript">
 // install plugins
 npm install karma-jasmine
 npm install karma-phantomjs-launcher
 npm install karma-chrome-launcher
 		  </code></pre>
-                </div>
-                <div>
-                    <pre><code data-trim class="javascript">
+                    </div>
+                    <div>
+                        <pre><code data-trim class="javascript">
 // run Karma
 ./node_modules/karma/bin/karma start / init / run
 // alternative
 npm install -g karma-cli
 karma start / init / run
 		  </code></pre>
-                </div>
+                    </div>
+                </section>
+                <section>
+                    <h3>Karma configuration file</h3>
+                    <div>
+                        <pre><code data-trim class="javascript">
+// can be created with karma init command
+module.exports = function (config) {
+	config.set({
+		basePath: '',
+		frameworks: [],
+		files: [],
+	    hostname: 'localhost',
+		port: 9876,
+		autoWatch: false,
+		browsers: [],
+		singleRun: false,
+	})
+};
+// for debugging in a browser:
+// - set single run to true
+// - select other browser
+		  </code></pre>
+                    </div>
+                    <p><a target="_blank" href="../exercises/index.html#/testing-browser">Exercise 7. - Testing in the browser</a></p>
+                </section>
             </section>
-
+            <section>
+                <p>Testing with Mocha and Chai</p>
+            </section>
         </div>
     </div>
 

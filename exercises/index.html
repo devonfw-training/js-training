@@ -161,16 +161,35 @@
                     </ol>
                 </section>
                 <section id="managing-dependencies">
-                <section>
-                    <h3>Managin dependencies (1/1)</h3>
-                    <ol>
-                        <li>create project <span class="monospace highlight">package.json</span> file with the <span class="monospace highlight">npm init</span> command</li>
-                        <li>install <span class="monospace highlight">bootstrap-css-only</span> dependency with <span class="monospace highlight">--save</span> flag</li>
-                        <li>replace CDN bootstrap link in the <span class="monospace highlight">index.html</span> file with the link to the installed package from <span class="monospace highlight">node_modules</span> directory</li>
-                        <li>check if the page looks the same after css replacement / check the package.json file</li>
-                    </ol>
+                    <section>
+                        <h3>Managin dependencies (1/1)</h3>
+                        <ol>
+                            <li>create project <span class="monospace highlight">package.json</span> file with the <span class="monospace highlight">npm init</span>                                command</li>
+                            <li>install <span class="monospace highlight">bootstrap-css-only</span> dependency with <span class="monospace highlight">--save</span>                                flag</li>
+                            <li>replace CDN bootstrap link in the <span class="monospace highlight">index.html</span> file with
+                                the link to the installed package from <span class="monospace highlight">node_modules</span>                                directory</li>
+                            <li>check if the page looks the same after css replacement / check the package.json file</li>
+                        </ol>
+                    </section>
                 </section>
-            </section>
+                <section id="testing-browser">
+                    <section>
+                        <h3>Tesing in the browser (1/1)</h3>
+                        <ol>
+                            <li>create <span class="monospace highlight">main.spec.js</span> file in the main project directory</li>
+                            <li>in the <span class="monospace highlight">main.spec.js</span> file create a test-suite with
+                                <span
+                                    class="monospace highlight">describe</span> function</li>
+                            <li>in the <span class="monospace highlight">beforeEach</span> section create a new person using
+                                <span class="monospace highlight">Person</span> class</li>
+                            <li>create specs for every public method of <span class="monospace highlight">Person</span> class
+                                with <span class="monospace highlight">it</span> function</li>
+                            <li>adjust karma configuration in the <span class="monospace highlight">karma.conf.js</span> file
+                                - add <span class="monospace highlight">main.js</span> file and <span class="monospace highlight">main.spec.js</span>                                file in the <span class="monospace highlight">files</span> array</li>
+                            <li>run tests with <span class="monospace highlight">karma start</span> command</li>
+                        </ol>
+                    </section>
+                </section>
             </section>
         </div>
     </div>
