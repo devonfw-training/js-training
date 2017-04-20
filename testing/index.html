@@ -36,10 +36,10 @@
                         <img class="header-logo" src="img/karma-logo.png" alt="karma logo">
                         <img class="header-logo" src="img/jasmine-logo.png" alt="jasmine logo">
                     </p>
-                    <p>Testing with <span class="highlight">Karma</span> and <span class="highlight">Jasmine</span></p>
+                    <p>Testing in the browser with <span class="highlight">Karma</span> and <span class="highlight">Jasmine</span></p>
                 </section>
                 <section>
-                    <h3>Tools - unit testing</h3>
+                    <h3>Tools</h3>
 
                     <ul>
                         <li><a target="_blank" href="https://karma-runner.github.io/1.0/index.html">Karma</a> - tool used to
@@ -116,7 +116,103 @@ module.exports = function (config) {
                 </section>
             </section>
             <section>
-                <p>Testing with Mocha and Chai</p>
+                <section>
+                    <p>
+                        <img class="header-logo" src="img/mocha-logo.png" alt="karma logo">
+                        <img class="header-logo" src="img/chai-logo.png" alt="jasmine logo">
+                    </p>
+                    <p>Testing on node with <span class="highlight">Mocha</span> and <span class="highlight">Chai</span></p>
+                </section>
+
+                <section>
+                    <h3>Tools</h3>
+
+                    <ul>
+                        <li><a target="_blank" href="https://mochajs.org/">Mocha</a> - is a feature-rich JavaScript test framework
+                            running on Node.js and in the browse.</li>
+                        <li><a target="_blank" href="http://chaijs.com/">Chai</a> - is a BDD / TDD assertion library for node
+                            and the browser that can be delightfully paired with any javascript testing framework.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Configuration</h3>
+                    <div>
+                        <pre><code data-trim class="javascript">
+// install Mocha and Chai
+npm install mocha
+npm install chai
+		  </code></pre>
+                    </div>
+                    <div>
+                        <pre><code data-trim class="javascript">
+// run tests
+./node_modules/mocha/bin/mocha //runs all test from default 'test' dir
+// alternative
+npm install -g mocha
+mocha tests --recursive --watch 
+// runs all tests from 'tests' directory
+// + subdirectories and watches files for changes  
+		  </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Structuring tests</h3>
+                    <div>
+                        <pre><code data-trim class="javascript">
+const chai = require('chai');
+
+const expect = chai.expect; 
+const should = chai.should; 
+const assert = chai.assert; 
+
+describe('A suite', () => {
+
+      it('contains spec with an expectation', () => {
+        expect(foo).to.be.a('string');
+        foo.should.be.a('string');
+        assert.equal(foo, 'bar');
+      });
+
+});
+		  </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Exlusions / inclusions</h3>
+                    <div>
+                        <pre><code data-trim class="javascript">
+describe.only('A suite', () => {
+    // only this suite will be run
+});
+
+describe.skip('A suite', () => {
+    // the suite will be skipped
+});
+
+it.only('spec', () => {
+    // only this spec will be run
+});
+
+it.skip('spec', () => {
+    // this spec will be skipped
+});
+		  </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Debbuging with VS Code</h3>
+                    <ol>
+                        <li>Set some breakpoints in VS editor</li>
+                        <li>Swich to the debug view</li>
+                        <li>Expand configuration dropdown and select 'Add Configuration'</li>
+                        <li>Start typing 'mocha' - example config is automatically generated</li>
+                        <li>Run the config</li>
+                    </ol>
+                </section>
             </section>
         </div>
     </div>
