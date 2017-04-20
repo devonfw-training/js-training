@@ -61,6 +61,13 @@ class Person {
     };
 };
 
+if (typeof module !== 'undefined') {
+    module.exports = {
+        Person: Person,
+        Account: Account
+    }
+}
+
 const person = new Person('John', 'Example', [new Account(1500, 'EUR', 1)]);
 console.log(person.sayHello());
 person.addAccount(new Account(-2500, 'EUR', 2));
