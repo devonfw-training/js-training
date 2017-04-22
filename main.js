@@ -67,21 +67,3 @@ if (typeof module !== 'undefined') {
         Account: Account
     }
 }
-
-const person = new Person('John', 'Example', [new Account(1500, 'EUR', 1)]);
-console.log(person.sayHello());
-person.addAccount(new Account(-2500, 'EUR', 2));
-console.log(person.sayHello());
-console.log(person.filterPositiveAccounts());
-
-
-person.withdraw(1, 200)
-    .then(success => {
-        console.log(success);
-        console.log('------------------after successful withdrawal--------------------------')
-        console.log(person.sayHello());
-    })
-    .catch(error => console.warn(error));
-
-person.withdraw(2, 200).catch(error => console.warn(error));
-person.withdraw(3, 500).catch(error => console.warn(error));
