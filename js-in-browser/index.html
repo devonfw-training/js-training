@@ -161,6 +161,24 @@ element.addEventListener('click', function(){
                 </div>
                 <a target="_blank" href="../exercises/index.html#/js-in-browser">Exercise 9. - JS in the browser</a>
             </section>
+
+            <section>
+                <h3>Event bubbling</h3>
+                <form onclick="alert('form')" style="border: 1px solid black; padding: 10px; border-radius: 5px; background: gray">form
+                    <div onclick="alert('div')" style="border: 1px solid black; padding: 10px; border-radius: 5px; background: lightslategray">div
+                        <p onclick="alert('p')" style="border: 1px solid black; border-radius: 5px; background: lightgrey">paragraph</p>
+                    </div>
+                </form>
+                <div>
+                    <pre><code data-trim class="html">
+&lt;form onclick="alert('form')"&gt;form
+    &lt;div onclick="alert('div')">div
+        &lt;p onclick="alert('p')">p&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+		  </code></pre>
+                </div>
+            </section>
         </div>
     </div>
 
