@@ -205,6 +205,71 @@
                     </ol>
                 </section>
             </section>
+            <section id="js-in-browser">
+                <section>
+                    <h3>JavaScript in the Browser (1/4)</h3>
+                    <ol>
+                        <li>add some new html in the <span class="monospace highlight">index.html</span> file in order to print
+                            created person with accounts</li>
+                        <li>you can use following bootstrap card snippet:</li>
+                    </ol>
+                    <div>
+                        <pre><code data-trim class="html">
+&lt;div class="card"&gt;
+    &lt;div class="card-block"&gt;
+        &lt;h4 class="card-title"&gt;
+            &lt;!--print person first and last name here--&gt;
+        &lt;/h4&gt;
+        &lt;h6 class="card-subtitle mb-2 text-muted"&gt;Accounts:&lt/h6&gt;
+    &lt;/div&gt;
+    &lt;!--iterate over accounts array and print number and balance--&gt;
+    &lt;!--create a paragraph for each account--&gt;
+&lt;/div>
+		  </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>JavaScript in the Browser (2/4)</h3>
+                    <ol start="3">
+                        <li>add a new js file and create a new person with 2 acocunts</li>
+                        <li>in the created js file write code for displaying person with accounts in the created card</li>
+                        <li>wrap the code in the module in order not to polute global scope</li>
+                        <li>be sure to include new script in the <span class="monospace highlight">index.html</span> under
+                            <span class="monospace highlight">main.js</span> script (Person class has to be available in
+                            the global scope)</li>
+                    </ol>
+                </section>
+                <section>
+                    <h3>JavaScript in the Browser (3/4)</h3>
+                    <ol start="7">
+                        <li>under the card html code in the <span class="monospace highlight">index.html</span> add two inputs
+                            with button to withdraw money</li>
+                    </ol>
+                    <div>
+                        <pre><code data-trim class="html">
+&lt;div class="form-inline"&gt;
+    &lt;label class="sr-only" for="number"&gt;Number&lt;/label&gt;
+    &lt;input type="number" min="0"" class="form-control mb-2 mr-sm-2 mb-sm-0" id="number" placeholder="Account number..."&gt;
+
+    &lt;label class="sr-only" for="amount">Amount&lt;/label&gt;
+    &lt;input type="number" min="0" class="form-control mb-2 mr-sm-2 mb-sm-0" id="amount" placeholder="Amount..."&gt;
+
+    &lt;button class="btn btn-primary"&gt;Submit&lt;/button&gt;
+&lt;/div&gt;
+		  </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>JavaScript in the Browser (4/4)</h3>
+                    <ol start="8">
+                        <li>use button <span class="monospace highlight">onclick</span> event to wire js function on button click</li>
+                        <li>in the newly created js file (the same module which was used for displaying person in the card) write
+                            a method which will read acocunt number, amount and call <span class="monospace highlight">person.withdraw</span></li>
+                        <li>if the withdrawal was successfull - update the amount of cash on the account</li>
+                        <li>extra - disable button when neither account number nor amount is given (use <span class="monospace highlight">onchange</span>                            and <span class="monospace highlight">onkeyup</span> events on both inputs)</li>
+                    </ol>
+                </section>
+            </section>
         </div>
     </div>
 
