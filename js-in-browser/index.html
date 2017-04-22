@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>JS Training - js in the browser</title>
+    <link rel="icon" href="../common/img/favicon.ico">
+
+
+    <link rel="stylesheet" href="../reveal.js-3.3.0/css/reveal.css">
+    <link rel="stylesheet" href="../reveal.js-3.3.0/css/theme/black.css">
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="styles/own.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../reveal.js-3.3.0/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js-3.3.0/css/print/pdf.css' : '../reveal.js-3.3.0/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="devon reveal">
+        <div class="slides">
+            <section>
+                <img class="header-logo" src="img/browsers.png" alt="browser logos">
+                <p><span class="highlight">JavaScript</span> in the browser</p>
+            </section>
+
+            <section>
+                <p><span class="highlight">Document Object Model</span> - (DOM) is a cross-platform and language-independent
+                    application programming interface that treats an HTML, XHTML, or XML document as a tree structure wherein
+                    each node is an object representing a part of the document. The objects can be manipulated programmatically
+                    and any visible changes occurring as a result may then be reflected in the display of the document
+            </section>
+
+            <section>
+                <h3><span class="highlight">Attributes</span> vs <span class="highlight">Properties</span></h3>
+                <blockquote class="twitter-tweet" data-lang="de">
+                    <p lang="en" dir="ltr">Attributes are defined by HTML. Properties are defined by DOM. <br /><br />Some HTML attributes have
+                        1:1 mapping onto properties. id is one example of such. <br /><br />Some do not (e.g. the value attribute
+                        specifies the initial value of an input, but the value property specifies the current value).</p>
+                    <a href="http://stackoverflow.com/a/19246773">8. October 2013</a></blockquote>
+            </section>
+
+            <section>
+                <h3>Html Attributes</h3>
+                <p>Attributes are defined by HTML, all definitions inside HTML tag are attributes</p>
+                <div>
+                    <pre><code data-trim class="html">
+&lt;div id="someId" class="highlight" custom-attr="custom-attr"&gt;&lt;/div&gt;
+		  </code></pre>
+                </div>
+                <div>
+                    <pre><code data-trim class="javascript">
+document.getElementById('someId').attributes
+// returns NamedNodeMap {0: id, 1: class, 2: custom-attr, length: 3}
+		  </code></pre>
+                </div>
+            </section>
+
+            <section>
+                <h3>Dom Properties</h3>
+                <p>Properties belong to DOM, the nature of DOM is an object in JavaScript</p>
+                <div>
+                    <pre><code data-trim class="html">
+&lt;div id="someId" class="highlight" custom-attr="custom-attr"&gt;&lt;/div&gt;
+		  </code></pre>
+                </div>
+                <div>
+                    <pre><code data-trim class="javascript">
+// custom attribute - not reflected in HTML
+document.getElementById('someId').newProp = 1; // setter
+document.getElementById('someId').newProp; // getter, returns 1
+
+// non-custom attribute - change reflected in HTML
+document.getElementById('someId').className = 'bold';
+		  </code></pre>
+                </div>
+
+            </section>
+
+            <section>
+                <h3>Selecting nodes</h3>
+                <div>
+                    <pre><code data-trim class="javascript">
+document.getElementById('someId');
+document.getElementsByTagName('tagName');
+document.getElementsByClassName('className');
+
+document.querySelector('cssSelector');
+document.querySelectorAll('cssSelector');
+
+// example
+document.querySelector('div.user-panel.main input[name=login]');
+// finds first input with name attribute which has 'login' value
+// input has to be under div with classes user-panel and main
+		  </code></pre>
+                </div>
+            </section>
+
+            <section>
+                <h3>Creating / adding / deleting nodes</h3>
+                <div>
+                    <pre><code data-trim class="javascript">
+document.createElement(element);
+document.removeChild(element);
+document.appendChild(element);
+document.replaceChild(element);
+		  </code></pre>
+                </div>
+            </section>
+
+            <section>
+                <h3>Editing elements</h3>
+                <div>
+                    <pre><code data-trim class="javascript">
+element.innerHTML =  'new content';
+element.attribute = 'attr value';
+element.style.property = 'new style';
+		  </code></pre>
+                </div>
+            </section>
+
+            <section>
+                <h3>Events</h3>
+                <p>The <span class="highlight">Event</span> interface represents any event which takes place in the DOM; some
+                    are user-generated (such as mouse or keyboard events), while others are generated by APIs (such as events
+                    that indicate an animation has finished running, a video has been paused, and so forth)</p>
+                <div>
+                    <pre><code data-trim class="javascript">
+// example events
+onclick	            // The user clicks an HTML element
+onmouseover	    // The user moves the mouse over an HTML element
+onmouseout	    // The user moves the mouse away from an HTML element
+onkeydown	    // The user pushes a keyboard key
+		  </code></pre>
+                </div>
+            </section>
+
+            <section>
+                <h3>Reacting on events</h3>
+                <div>
+                    <pre><code data-trim class="javascript">
+element.onclcik = function(){
+    console.log('clicked!');
+};
+
+element.addEventListener('click', function(){
+    console.log('clicked');
+});
+		  </code></pre>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="../reveal.js-3.3.0/lib/js/head.min.js"></script>
+    <script src="../reveal.js-3.3.0/js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+                { src: '../reveal.js-3.3.0/lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: '../reveal.js-3.3.0/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: '../reveal.js-3.3.0/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: '../reveal.js-3.3.0/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: '../reveal.js-3.3.0/plugin/zoom-js/zoom.js', async: true },
+                { src: '../reveal.js-3.3.0/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+</body>
+
+</html>
