@@ -270,6 +270,47 @@
                     </ol>
                 </section>
             </section>
+            <section id="custom-events">
+                <section>
+                    <h3>Custom events (1/3)</h3>
+                    <ol>
+                        <li>in the <span class="monospace highlight">index.html</span> file add the bootstrap progress bar directly
+                            after <span class="monospace highlight">h1</span> tag</li>
+                        <li>you can use following code snippet:</li>
+                    </ol>
+                    <div>
+                        <pre><code data-trim class="html">
+&lt;div class="progress" hidden&gt;
+    &lt;div class="progress-bar progress-bar-striped active" 
+        role="progressbar" aria-valuenow="100" aria-valuemin="0" 
+        aria-valuemax="100" style="width: 100%"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+		  </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Custom events (2/3)</h3>
+                    <ol start="3">
+                        <li>notice that progress bar is disabled by default - change the hidden attribute in the js file as soon
+                            as <span class="monospace highlight">withdraw</span> button is clicked</li>
+                        <li>create custom bubbling event with payload <span class="monospace highlight">showProgress: true</span>                            and dispatch it from the <span class="monospace highlight">button</span> element</li>
+                        <li>in the js file query for div with <span class="monospace highlight">container</span> class and add
+                            the event subscription on it</li>
+                        <li>in the subscription change the visibility of the progress bar (show it)</li>
+                    </ol>
+                </section>
+                <section>
+                    <h3>Custom events (3/3)</h3>
+                    <ol start="7">
+                        <li>when withdrawal <span class="monospace highlight">promise</span> is either resolved or rejected -
+                            dispatch the same event, but with other payload (<span class="monospace highlight">showProgress: false</span>)</li>
+                        <li>hide the progress after withdrawal operation</li>
+                        <li>extra - disable the button for the time money being withdrawn</li>
+                    </ol>
+                </section>
+            </section>
         </div>
     </div>
 

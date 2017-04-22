@@ -179,6 +179,23 @@ element.addEventListener('click', function(){
 		  </code></pre>
                 </div>
             </section>
+
+            <section>
+                <h3>Creating custom events</h3>
+                <div>
+                    <pre><code data-trim class="javascript">
+const event = new CustomEvent(
+    'name',
+    {
+        detail: {} // event payload;
+        bubbles: true
+        cancelable: true // can be canceled with e.stopPropagation();
+    }
+);
+		  </code></pre>
+                </div>
+                <a target="_blank" href="../exercises/index.html#/custom-events">Exercise 10. - custom events</a>
+            </section>
         </div>
     </div>
 
