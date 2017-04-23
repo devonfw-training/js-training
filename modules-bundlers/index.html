@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>JS Training - modules and bundlers</title>
+    <link rel="icon" href="../common/img/favicon.ico">
+
+
+    <link rel="stylesheet" href="../reveal.js-3.3.0/css/reveal.css">
+    <link rel="stylesheet" href="../reveal.js-3.3.0/css/theme/black.css">
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="styles/own.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../reveal.js-3.3.0/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js-3.3.0/css/print/pdf.css' : '../reveal.js-3.3.0/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="devon reveal">
+        <div class="slides">
+            <section>
+                <section>
+                    <p>
+                        <img class="header-logo" src="img/commonjs-logo.png" alt="commonjs logo">
+                    </p>
+                    <p><span class="highlight">CommonJS</span> - a group with a goal of building up the JavaScript ecosystem
+                        for web servers, desktop and command line apps and in the browser.</p>
+                    <p>It is a project to define a common API and ecosystem for JavaScript. One part of it is the <span class="highlight">Module</span>                        specification</p>
+                    <p><span class="highlight">node.js</span> implements modules based on the <span class="highlight">CommonJS</span>                        specification</p>
+                </section>
+
+                <section>
+                    <h3>Example module</h3>
+                    <div>
+                        <pre><code data-trim class="javascript">
+// circle.js file
+const { PI } = Math;
+exports.area = (r) => PI * r ** 2;
+exports.circumference = (r) => 2 * PI * r;
+
+// program.js file (same directory)
+const circle = require('./circle.js');
+console.log(`The area of a circle of radius 4 is ${circle.area(4)}`);
+		  </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Example module</h3>
+                    <p>If you want the root of your module's export to be a function (such as a constructor) or if you want
+                        to export a complete object in one assignment instead of building it one property at a time, assign
+                        it to
+                        <span class="highlight">module.exports</span> instead of <span class="highlight">exports</span>.</p>
+                    <div>
+                        <pre><code data-trim class="javascript">
+// square.js file
+module.exports = (width) => {
+    return {
+        area: () => width ** 2
+    };
+};
+
+// program.js file (same directory)
+const square = require('./square.js');
+const mySquare = square(2);
+console.log(`The area of my square is ${mySquare.area()}`);
+		  </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Module wrapper function</h3>
+                    <div>
+                        <pre><code data-trim class="javascript">
+(function (exports, require, module, __filename, __dirname) {
+    // Your module code actually lives in here
+});
+		  </code></pre>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <p>
+                        <img class="header-logo" src="img/webpack-logo.gif" alt="webpack logo">
+                    </p>
+                    <p><a target="_blank" href="https://webpack.js.org/">Webpack</a> is a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser, yet
+                        it is also capable of transforming, bundling, or packaging just about any resource or asset.</p>
+                </section>
+
+                <section>
+                    <h3>Example</h3>
+                    <div>
+                        <pre><code data-trim class="javascript">
+// bar.js
+export default function bar() {
+  // do something here
+}
+
+// app.js
+import bar from './bar';
+bar();
+
+// webpack.config.js
+module.exports = {
+  entry: './app.js',
+  output: {
+    filename: 'bundle.js' // single file to attach to the page
+  }
+}
+
+// run 'webpack' to create bundle.js
+		  </code></pre>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="../reveal.js-3.3.0/lib/js/head.min.js"></script>
+    <script src="../reveal.js-3.3.0/js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+                { src: '../reveal.js-3.3.0/lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: '../reveal.js-3.3.0/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: '../reveal.js-3.3.0/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: '../reveal.js-3.3.0/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: '../reveal.js-3.3.0/plugin/zoom-js/zoom.js', async: true },
+                { src: '../reveal.js-3.3.0/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+</body>
+
+</html>
