@@ -12,5 +12,3 @@
 8. Install karma globally - npm i -g karma-cli
 9. Install mocha globally - npm i -g mocha
 10. Install yarn globally - npm i -g yarn
-
-
