@@ -3,10 +3,11 @@ describe('Person class tests', () => {
     let person;
     const firstName = 'John';
     const lastName = 'Example';
-    const accounts = [new Account(1500, 'EUR', 1234)];
+    let accounts;
 
 
     beforeEach(() => {
+        accounts = [new Account(1500, 'EUR', 1234)];
         person = new Person(firstName, lastName, accounts);
     });
 
@@ -34,7 +35,7 @@ describe('Person class tests', () => {
 
     it('should introduce itself', () => {
         // given when then
-        expect(person.sayHello()).toBe('Hi, my name is John Example and I have 2 bank account(s) with total balance 1700');
+        expect(person.sayHello()).toBe('Hi, my name is John Example and I have 1 bank account(s) with total balance 1500');
     });
 
     it('should filter accounts with positive balance', () => {
@@ -46,9 +47,8 @@ describe('Person class tests', () => {
         const positiveAccounts = person.filterPositiveAccounts();
 
         // then
-        expect(positiveAccounts.length = 2);
+        expect(positiveAccounts.length = 1);
         expect(positiveAccounts[0].balance).toBeGreaterThanOrEqual(0);
-        expect(positiveAccounts[1].balance).toBeGreaterThanOrEqual(0);
     });
 
     it('should find account by its number', () => {
