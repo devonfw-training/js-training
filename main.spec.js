@@ -1,14 +1,11 @@
 describe('Person class tests', () => {
 
-    let person;
     const firstName = 'John';
     const lastName = 'Example';
-    let accounts;
-
+    let person;
 
     beforeEach(() => {
-        accounts = [new Account(1500, 'EUR', 1234)];
-        person = new Person(firstName, lastName, accounts);
+        person = new Person(firstName, lastName, [new Account(1500, 'EUR', 1234)]);
     });
 
     it('should initialize new person object', () => {
@@ -65,7 +62,7 @@ describe('Person class tests', () => {
     it('should withdraw money', (done) => {
         // given when
         const promise = person.withdraw(1234, 200);
-        
+
         // then
         promise.then(() => {
             expect(person.accounts[0].balance).toBe(1300);
