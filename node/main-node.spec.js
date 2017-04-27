@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect; // we are using the "expect" style of Chai
-const Person = require('../main.js').Person;
-const Account = require('../main.js').Account;
+const Person = require('./person.js');
+const Account = require('./account.js');
 
 
 describe('Person class tests', () => {

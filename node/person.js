@@ -1,14 +1,4 @@
-console.log('hello from main js');
-
-class Account {
-    constructor(balance, currency, number) {
-        this.balance = balance;
-        this.currency = currency;
-        this.number = number;
-    };
-};
-
-class Person {
+module.exports = class Person {
     constructor(firstName, lastName, accounts) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -60,10 +50,3 @@ class Person {
         return totalBalance;
     };
 };
-
-if (typeof module !== 'undefined') {
-    module.exports = {
-        Person: Person,
-        Account: Account
-    }
-}
