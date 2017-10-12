@@ -164,10 +164,12 @@ mocha tests --recursive --watch
 const chai = require('chai');
 
 const expect = chai.expect; 
-const should = chai.should; 
+const should = chai.should(); // function call 
 const assert = chai.assert; 
 
 describe('A suite', () => {
+
+      const foo = 'bar';
 
       it('contains spec with an expectation', () => {
         expect(foo).to.be.a('string');
