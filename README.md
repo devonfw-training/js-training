@@ -21,6 +21,4 @@
 
 
 ## TODOS:
-1. add info: there is no method overriding
-2. correct chai expect lecture
-3. correct webpack config in order to include other resources than .js
+1. correct webpack config in order to include other resources than .js
