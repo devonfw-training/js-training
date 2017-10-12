@@ -233,6 +233,23 @@ myFun();
 					</code></pre>
                 </section>
                 <section>
+                    <h2>Functions cannot be overloaded</h2>
+                    <pre><code data-trim class="javascript">
+var add = function (a) {
+    return a + 1;
+};
+// this will override the previous 'add' function definition
+var add = function (a, b) {
+    return a + b;
+};
+
+add(1, 2); // 3
+add(); // a = undefined, b = undefined, returns NaN
+add(1); // a = 1, b = undefined, returns 1 + undefined = NaN
+add(1, 2, 'third argument will be ignored'); // 3
+					</code></pre>
+                </section>
+                <section>
                     <h2>Closure</h2>
                     <p>enables a function to keep its creation context</p>
                     <pre><code data-trim class="javascript">
