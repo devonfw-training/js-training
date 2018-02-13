@@ -21,6 +21,10 @@
     - use 'ChromeHeadless' in karma.conf.js browsers array to test in the headless version of Chrome
 3. To run mocha tests: "mocha node"
 
+## Note
+Since PhantomJS can't interpret es2015 without additional shims, the PhantomJS dependencies will be probably 
+dropped in favour of running Tests in the Headless Chrome
+
 
 ## TODOS:
 1. correct webpack config in order to include other resources than .js
