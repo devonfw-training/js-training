@@ -9,8 +9,8 @@
 5. Install node 8.7.0 (nvm install 8.7.0)
 6. Tell nvm to use installed node version (nvm use 8.7.0)
 7. In the repository directiory (with package.json file) - call npm install
-8. Install karma globally - npm i -g karma-cli
-9. Install mocha globally - npm i -g mocha
+8. Install karma globally - npm i -g karma-cli@1.0.1
+9. Install mocha globally - npm i -g mocha@5.0.0
 10. Install yarn globally - npm i -g yarn
 
 ## When on webpack branch:
@@ -24,7 +24,3 @@
 ## Note
 Since PhantomJS can't interpret es2015 without additional shims, the PhantomJS dependencies will be probably 
 dropped in favour of running Tests in the Headless Chrome
-
-
-## TODOS:
-1. correct webpack config in order to include other resources than .js
