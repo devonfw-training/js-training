@@ -4,15 +4,22 @@ module.exports = {
         path: '/build',
         filename: 'bundle.js'
     },
+    devtool: 'source-map',
     module: {
-        loaders: [{
-            test: /\.js$/,
-            loaders: 'babel-loader',
-            exclude: /node_modules/,
-            query: {
-                presets: ['es2015']
+        rules: [
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                options: {
+                    presets: ['env']
+                }
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
-        }]
+        ]
     },
     devServer: {
         port: 3000,
