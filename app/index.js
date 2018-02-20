@@ -10,7 +10,7 @@ window.atm = (() => {
     document.querySelector('.card-title').innerHTML = `${person.firstName} ${person.lastName}`;
 
     // list person accounts
-    const card = document.querySelector('.card');
+    const card = document.querySelector('.card-body');
 
     for (let account of person.accounts) {
         const paragraph = document.createElement('p');
