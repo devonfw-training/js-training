@@ -1,9 +1,7 @@
 let tmpl = document.createElement('template');
 tmpl.innerHTML = `
  <style>
- #validation-result{
-     font-weight: bolder;
- }
+
 </style>
 <div>
 Podaj 13-znakowy number ISBN (bez myślników): 
@@ -28,16 +26,12 @@ class ISBNValidator extends HTMLElement {
 
   validate = () => {
     const isbnInput = this.shadowRoot.querySelector('#isbn-input');
-    this.validateIsbn(isbnInput.value);
-  };
-
-  validateIsbn = value => {
     const isbnValidLength = 13;
     const checkMarkCode = '&#10004;';
     const errorCode = '&#10006;';
 
-    if (value.length === isbnValidLength) {
-      const isIsbnValid = this.performValidation(value, isbnValidLength);
+    if (isbnInput.value.length === isbnValidLength) {
+      const isIsbnValid = this.performValidation(isbnInput.value, isbnValidLength);
       if (isIsbnValid) {
         this.shadowRoot.querySelector('#validation-result').innerHTML = checkMarkCode;
       } else {
