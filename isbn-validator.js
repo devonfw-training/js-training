@@ -1,7 +1,6 @@
 let tmpl = document.createElement('template');
 tmpl.innerHTML = `
  <style>
-
 </style>
 <div>
 Podaj 13-znakowy number ISBN (bez myślników): 
@@ -20,7 +19,6 @@ class ISBNValidator extends HTMLElement {
     this.shadowRoot.appendChild(template);
 
     const isbnInput = this.shadowRoot.querySelector('#isbn-input');
-
     isbnInput.addEventListener('keyup', this.validate);
   }
 
