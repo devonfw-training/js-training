@@ -12,8 +12,18 @@
   <body>
     <h4>Validate ISBN</h4>
     <div>
+      Enter ISBN number (no dashes)
+      <div>
+        <input type="text" id="isbn-input" />
+        <span id="validation-result"></span>
+      </div>
+    </div>
+
+    <div>
+      Enter ISBN number (no dashes) - Web Components!
       <isbn-validator></isbn-validator>
     </div>
+    <script src="isbn-validator-classic-js.js"></script>
     <script src="isbn-validator.js"></script>
   </body>
 </html>

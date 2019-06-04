@@ -3,7 +3,6 @@ tmpl.innerHTML = `
  <style>
 </style>
 <div>
-Podaj 13-znakowy number ISBN (bez myślników): 
  <input type="text" id="isbn-input" /> 
  <span id="validation-result"></span>
 </div>
@@ -11,6 +10,10 @@ Podaj 13-znakowy number ISBN (bez myślników):
 `;
 
 class ISBNValidator extends HTMLElement {
+  isbnValidLength = 13;
+  isbnInput;
+  validationResultSpan;
+
   constructor() {
     super();
 
@@ -18,44 +21,43 @@ class ISBNValidator extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template);
 
-    const isbnInput = this.shadowRoot.querySelector('#isbn-input');
-    isbnInput.addEventListener('keyup', this.validate);
+    this.isbnInput = this.shadowRoot.querySelector('#isbn-input');
+    this.validationResultSpan = this.shadowRoot.querySelector('#validation-result');
+    this.isbnInput.addEventListener('keyup', this.performValidation.bind(this));
   }
 
-  validate = () => {
-    const isbnInput = this.shadowRoot.querySelector('#isbn-input');
-    const isbnValidLength = 13;
+  performValidation() {
     const checkMarkCode = '&#10004;';
     const errorCode = '&#10006;';
 
-    if (isbnInput.value.length === isbnValidLength) {
-      const isIsbnValid = this.performValidation(isbnInput.value, isbnValidLength);
-      if (isIsbnValid) {
-        this.shadowRoot.querySelector('#validation-result').innerHTML = checkMarkCode;
+    if (this.isbnInput.value.length === this.isbnValidLength) {
+      const isValid = this.isValidISBN(this.isbnInput.value);
+      if (isValid) {
+        this.validationResultSpan.innerHTML = checkMarkCode;
       } else {
-        this.shadowRoot.querySelector('#validation-result').innerHTML = errorCode;
+        this.validationResultSpan.innerHTML = errorCode;
       }
     } else {
-      this.shadowRoot.querySelector('#validation-result').innerHTML = '';
+      this.validationResultSpan.innerHTML = '';
     }
-  };
+  }
 
-  performValidation = (value, isbnValidLength) => {
+  isValidISBN(value) {
     const weightForOddNumber = 1;
     const weightForEvenNumber = 3;
 
     let oddSum = 0;
-    for (let i = isbnValidLength; i > 0; i = i - 2) {
-      oddSum += +value[isbnValidLength - i] * weightForOddNumber;
+    for (let i = this.isbnValidLength; i > 0; i = i - 2) {
+      oddSum += +value[this.isbnValidLength - i] * weightForOddNumber;
     }
 
     let evenSum = 0;
-    for (let i = isbnValidLength - 1; i > 0; i = i - 2) {
-      evenSum += +value[isbnValidLength - i] * weightForEvenNumber;
+    for (let i = this.isbnValidLength - 1; i > 0; i = i - 2) {
+      evenSum += +value[this.isbnValidLength - i] * weightForEvenNumber;
     }
 
     return (evenSum + oddSum) % 10 === 0;
-  };
+  }
 }
 
 customElements.define('isbn-validator', ISBNValidator);
