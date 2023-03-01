@@ -24,10 +24,10 @@
     "css-loader": "^0.28.9",
     "hoek": "^5.0.3",
     "jasmine-core": "^3.1.0",
-    "karma": "^2.0.2",
+    "karma": "^6.4.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.1",
-    "mocha": "^5.1.1",
+    "mocha": "^10.2.0",
     "style-loader": "^0.20.1",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.4.2"
